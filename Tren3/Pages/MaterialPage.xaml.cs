@@ -48,7 +48,13 @@ namespace Tren3.Pages
 
         private void DeleteStorage(object sender, RoutedEventArgs e)
         {
+            if (SelectedMaterial != null)
+            {
+                Entities.GetContext().Material.Remove(SelectedMaterial);
 
+            }
+            Entities.GetContext().SaveChanges();
+            UpdateListView();
         }
 
         private void SaveResult(object sender, RoutedEventArgs e)

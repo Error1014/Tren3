@@ -46,7 +46,7 @@
             <TextBlock Style="{StaticResource EditText}" Text="Расстояние до центра:"/>
             <TextBox x:Name="DistanceTB" PreviewTextInput="TextInputNumber" Style="{StaticResource EditText}" MaxLength="10"/>
             <Button Content="Добавить новый склад" Style="{StaticResource ButtonAccent}" Click="AddOderEditRejime"/>
-            <Button Visibility="Hidden" Content="Удалить" Style="{StaticResource ButtonAccent}" Click="DeleteStorage"/>
+            <Button Content="Удалить" Style="{StaticResource ButtonAccent}" Click="DeleteStorage"/>
             <Button Content="Сохранить" Style="{StaticResource ButtonAccent}" VerticalAlignment="Bottom" Margin="0,50" Click="SaveResult" />
         </StackPanel>
 

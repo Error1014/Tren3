@@ -22,16 +22,13 @@ namespace Tren3.Pages
    
     public partial class StoragePage : Page
     {
-        private Storage SelectedStorage = new Storage();
+        private Storage SelectedStorage = null;
         private bool isAdd = false;
         public StoragePage()
         {
             InitializeComponent();
             TitleModul.Text = "Модуль редактирования";
             UpdateListView();
-            TypeCB.SelectedValuePath = "ID";
-            TypeCB.DisplayMemberPath = "Title";
-            TypeCB.ItemsSource = Entities.GetContext().TypeMaterial.ToList();
         }
 
 
@@ -40,11 +37,12 @@ namespace Tren3.Pages
             SelectedStorage = (sender as Grid).DataContext as Storage;
             NumberTB.Text = SelectedStorage.Number.ToString();
             AddressTB.Text = SelectedStorage.Address.ToString();
-            TypeCB.SelectedIndex = (int)(SelectedStorage.TypeMaterialID)==null? 0: (int)(SelectedStorage.TypeMaterialID - 1);
+            TypeCB.SelectedIndex = (int)SelectedStorage.TypeMaterialID - 1;
             DistanceTB.Text = SelectedStorage.DistanceCenter.ToString();
         }
         private void ReadData()
         {
+            SelectedStorage= new Storage();
             SelectedStorage.Number = NumberTB.Text;
             SelectedStorage.Address = AddressTB.Text;
             SelectedStorage.TypeMaterialID = TypeCB.SelectedIndex + 1;
@@ -77,6 +75,7 @@ namespace Tren3.Pages
                 Entities.GetContext().Storage.Remove(SelectedStorage);
                
             }
+            Entities.GetContext().SaveChanges();
             UpdateListView();
         }
 
@@ -111,6 +110,9 @@ namespace Tren3.Pages
         {
             var data = Entities.GetContext().Storage.ToList();
             ListViewStorage.ItemsSource = data;
+            TypeCB.SelectedValuePath = "ID";
+            TypeCB.DisplayMemberPath = "Title";
+            TypeCB.ItemsSource = Entities.GetContext().TypeMaterial.ToList();
         }
 
         private void TextInputNumber(object sender, TextCompositionEventArgs e)

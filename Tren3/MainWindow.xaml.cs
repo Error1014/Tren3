@@ -21,8 +21,10 @@ namespace Tren3
         public MainWindow()
         {
             InitializeComponent();
+            
             MainWindowFrame = MainFrame;
             MainWindowFrame.Content = new Pages.StoragePage();
+            MessageBox.Show("Для авторизации в системе нажмите <<ОК>>");
         }
 
         private void StorageNavigate(object sender, RoutedEventArgs e)
