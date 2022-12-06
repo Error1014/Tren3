@@ -29,5 +29,9 @@ namespace Tren3
         {
             MainWindowFrame.Content = new Pages.StoragePage();
         }
+        private void MaterialNavigate(object sender, RoutedEventArgs e)
+        {
+            MainWindowFrame.Content = new Pages.MaterialPage();
+        }
     }
 }

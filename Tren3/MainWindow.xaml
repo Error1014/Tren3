@@ -15,7 +15,7 @@
         <DockPanel Background="#FF424242">
             <DockPanel HorizontalAlignment="Left">
                 <Button Style="{StaticResource ButtonNavigate}" Click="StorageNavigate" Content="Склады"/>
-                <Button Style="{StaticResource ButtonNavigate}" Content="Материалы"/>
+                <Button Style="{StaticResource ButtonNavigate}" Click="MaterialNavigate" Content="Материалы"/>
             </DockPanel>
         </DockPanel>
         <Frame Grid.Row="1" x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
