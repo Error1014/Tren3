@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -39,7 +40,7 @@ namespace Tren3.Pages
             SelectedStorage = (sender as Grid).DataContext as Storage;
             NumberTB.Text = SelectedStorage.Number.ToString();
             AddressTB.Text = SelectedStorage.Address.ToString();
-            TypeCB.SelectedIndex = (int)(SelectedStorage.TypeMaterialID - 1);
+            TypeCB.SelectedIndex = (int)(SelectedStorage.TypeMaterialID)==null? 0: (int)(SelectedStorage.TypeMaterialID - 1);
             DistanceTB.Text = SelectedStorage.DistanceCenter.ToString();
         }
         private void ReadData()
@@ -74,12 +75,17 @@ namespace Tren3.Pages
             if (SelectedStorage!=null)
             {
                 Entities.GetContext().Storage.Remove(SelectedStorage);
-                ClearEditBlock();
+               
             }
             UpdateListView();
         }
 
-        private void AddStorage(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Редим создания или редактирования 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddOderEditRejime(object sender, RoutedEventArgs e)
         {
             
             isAdd = !isAdd;
@@ -98,10 +104,19 @@ namespace Tren3.Pages
 
         }
 
+        /// <summary>
+        /// обновляет данные в ListView
+        /// </summary>
         private void UpdateListView()
         {
             var data = Entities.GetContext().Storage.ToList();
             ListViewStorage.ItemsSource = data;
+        }
+
+        private void TextInputNumber(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }
