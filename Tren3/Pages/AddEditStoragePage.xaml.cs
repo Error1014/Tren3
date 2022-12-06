@@ -13,21 +13,20 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Tren3
+namespace Tren3.Pages
 {
-    public partial class MainWindow : Window
+    /// <summary>
+    /// Логика взаимодействия для AddEditStoragePage.xaml
+    /// </summary>
+    public partial class AddEditStoragePage : Page
     {
-        public static Frame MainWindowFrame = new Frame();
-        public MainWindow()
+        private Storage MyStorage = new Storage();
+        private bool isAdd = true;
+        public AddEditStoragePage(Storage SelectStorage)
         {
             InitializeComponent();
-            MainWindowFrame = MainFrame;
-            MainWindowFrame.Content = new Pages.StoragePage();
-        }
+            if (SelectStorage != null) isAdd = false;
 
-        private void StorageNavigate(object sender, RoutedEventArgs e)
-        {
-            MainWindowFrame.Content = new Pages.StoragePage();
         }
     }
 }

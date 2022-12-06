@@ -9,6 +9,10 @@
       Title="StoragePage">
 
     <Grid Background="#FFAFAFAF">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="501*"/>
+            <ColumnDefinition Width="299*"/>
+        </Grid.ColumnDefinitions>
         <ListView x:Name="ListViewStorage">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -25,19 +29,34 @@
             </ListView.View>-->
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
+                    <Grid PreviewMouseLeftButtonDown="SelectStorage">
                         <DockPanel Style="{StaticResource TextTable}" HorizontalAlignment="Center">
-                            <TextBlock Text="{Binding Number}"/>
+                            <TextBlock Text="{Binding Number}" Width="50"/>
                             <TextBlock Text="|"/>
-                            <TextBlock Text="{Binding Address}" Width="300" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Address}" Width="250" HorizontalAlignment="Center"/>
                             <TextBlock Text="|"/>
-                            <TextBlock Text="{Binding TypeMaterial.Title}" Width="300" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding TypeMaterial.Title}" Width="200" HorizontalAlignment="Center"/>
                             <TextBlock Text="|"/>
-                            <TextBlock Text="{Binding DistanceCenter}" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding DistanceCenter}" HorizontalAlignment="Center"  Width="50"/>
                         </DockPanel>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <StackPanel Grid.Column="1">
+            <TextBlock x:Name="TitleModul" Text="Модуль редактирования" FontSize="25"/>
+            <TextBlock Style="{StaticResource EditText}" Text="Номер склада:"/>
+            <TextBox x:Name="NumberTB" Style="{StaticResource EditText}"/>
+            <TextBlock Style="{StaticResource EditText}" Text="Адрес:"/>
+            <TextBox x:Name="AddressTB" Style="{StaticResource EditText}"/>
+            <TextBlock Style="{StaticResource EditText}" Text="Тип материала:"/>
+            <ComboBox x:Name="TypeCB" Style="{StaticResource EditText}"/>
+            <TextBlock Style="{StaticResource EditText}" Text="Расстояние до центра:"/>
+            <TextBox x:Name="DistanceTB" Style="{StaticResource EditText}"/>
+            <Button Content="Добавить новый склад" Style="{StaticResource ButtonAccent}" Click="AddStorage"/>
+            <Button Content="Удалить" Style="{StaticResource ButtonAccent}" Click="DeleteStorage"/>
+            <Button Content="Сохранить" Style="{StaticResource ButtonAccent}" VerticalAlignment="Bottom" Margin="0,70" Click="SaveResult"/>
+        </StackPanel>
+        
     </Grid>
 </Page>

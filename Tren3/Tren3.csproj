@@ -75,6 +75,9 @@
     <Compile Include="Material.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AddEditStoragePage.xaml.cs">
+      <DependentUpon>AddEditStoragePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Storage.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
@@ -106,6 +109,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AddEditStoragePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\StoragePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
