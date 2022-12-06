@@ -13,16 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Tren3
+namespace Tren3.Pages
 {
-    public partial class MainWindow : Window
+    /// <summary>
+    /// Логика взаимодействия для StoragePage.xaml
+    /// </summary>
+    public partial class StoragePage : Page
     {
-        public static Frame MainWindowFrame = new Frame();
-        public MainWindow()
+        public StoragePage()
         {
             InitializeComponent();
-            MainWindowFrame = MainFrame;
-            MainWindowFrame.Content = new Pages.StoragePage();
         }
     }
 }

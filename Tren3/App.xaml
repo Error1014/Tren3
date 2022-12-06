@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:Tren3"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="ButtonNavigate">
+            <Setter Property="Button.Width" Value="200"/>
+            <Setter Property="Button.FontSize" Value="20"/>
+            <Setter Property="Button.Margin" Value="10"/>
+            <Setter Property="Button.Background" Value="#FFEDF032"/>
+        </Style>
     </Application.Resources>
 </Application>
