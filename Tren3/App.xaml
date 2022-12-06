@@ -10,5 +10,9 @@
             <Setter Property="Button.Margin" Value="10"/>
             <Setter Property="Button.Background" Value="#FFEDF032"/>
         </Style>
+        <Style x:Key="TextTable">
+            <Setter Property="TextBlock.FontSize" Value="18"/>
+
+        </Style>
     </Application.Resources>
 </Application>

@@ -9,6 +9,35 @@
       Title="StoragePage">
 
     <Grid Background="#FFAFAFAF">
-        
+        <ListView x:Name="ListViewStorage">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel></StackPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <!--<ListView.View>
+                <GridView>
+                    <GridViewColumn Header="№" DisplayMemberBinding="{Binding Number}"/>
+                    <GridViewColumn Header="Адрес" DisplayMemberBinding="{Binding Address}"/>
+                    <GridViewColumn Header="Тип материала" DisplayMemberBinding="{Binding TypeMaterial.Title}"/>
+                    <GridViewColumn Header="Расстояние до центра" DisplayMemberBinding="{Binding DistanceCenter}"/>
+                </GridView>
+            </ListView.View>-->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <DockPanel Style="{StaticResource TextTable}" HorizontalAlignment="Center">
+                            <TextBlock Text="{Binding Number}"/>
+                            <TextBlock Text="|"/>
+                            <TextBlock Text="{Binding Address}" Width="300" HorizontalAlignment="Center"/>
+                            <TextBlock Text="|"/>
+                            <TextBlock Text="{Binding TypeMaterial.Title}" Width="300" HorizontalAlignment="Center"/>
+                            <TextBlock Text="|"/>
+                            <TextBlock Text="{Binding DistanceCenter}" HorizontalAlignment="Center"/>
+                        </DockPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>

@@ -23,6 +23,8 @@ namespace Tren3.Pages
         public StoragePage()
         {
             InitializeComponent();
+            var data = Entities.GetContext().Storage.ToList();
+            ListViewStorage.ItemsSource = data;
         }
     }
 }
