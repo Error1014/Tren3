@@ -22,7 +22,7 @@ namespace Tren3.Pages
    
     public partial class StoragePage : Page
     {
-        private Storage SelectedStorage = null;
+        private Storage SelectedStorage = new Storage();
         private bool isAdd = false;
         public StoragePage()
         {
@@ -42,7 +42,6 @@ namespace Tren3.Pages
         }
         private void ReadData()
         {
-            SelectedStorage= new Storage();
             SelectedStorage.Number = NumberTB.Text;
             SelectedStorage.Address = AddressTB.Text;
             SelectedStorage.TypeMaterialID = TypeCB.SelectedIndex + 1;
