@@ -64,5 +64,11 @@ namespace Tren3.Pages
             StorageWindow storageWindow = new StorageWindow(2);
             storageWindow.Show();
         }
+
+        private void ShowMaterialMaxOstat(object sender, RoutedEventArgs e)
+        {
+            InfoWindow infoWindow = new InfoWindow();
+            infoWindow.Show();
+        }
     }
 }
