@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tren3.Windows"
         mc:Ignorable="d"
-        Title="Материалы в Комарово" Height="450" Width="800">
+        Title="Материалы в Комарово" Height="400" Width="600"
+        MinHeight="400" MinWidth="600">
     <Grid>
         <ListView x:Name="ListViewMaterial">
             <ListView.View>

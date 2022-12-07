@@ -25,10 +25,12 @@ namespace Tren3.Windows
             if (rejime==1)
             {
                 ShowDataMaterialInKomarowo();
+                this.Title = "Материалы в Комарово";
             }
             else
             {
                 ShowDataMaterialReverce();
+                this.Title = "Материалы в обратном порядке";
             }
         }
         private void ShowDataMaterialInKomarowo()

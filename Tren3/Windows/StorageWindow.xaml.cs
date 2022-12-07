@@ -19,18 +19,27 @@ namespace Tren3.Windows
     /// </summary>
     public partial class StorageWindow : Window
     {
-        public StorageWindow()
+        public StorageWindow(int rejime)
         {
             InitializeComponent();
-            ShowDataKomarowo();
+            if (rejime == 1) ShowData();
+            else ShowDataStorageDistinct();
 
         }
-        private void ShowDataKomarowo()
+        private void ShowData()
         {
             var DataStorage = from x in Entities.GetContext().Storage.ToList()
                               join y in Entities.GetContext().TypeMaterial.ToList() on x.TypeMaterialID equals y.ID
                               select new { addres = x.Address, type = y.Title, distantion = x.DistanceCenter };
             ListViewStorage.ItemsSource = DataStorage;
+        }
+        private void ShowDataStorageDistinct()
+        {
+            var DataStorage = from z in Entities.GetContext().Material.ToList()
+                              join x in Entities.GetContext().Storage.ToList() on z.StorageID equals x.ID
+                              join y in Entities.GetContext().TypeMaterial.ToList() on x.TypeMaterialID equals y.ID
+                              select new { addres = x.Address, type = y.Title, distantion = x.DistanceCenter };
+            ListViewStorage.ItemsSource = DataStorage.Distinct();
         }
     }
 }

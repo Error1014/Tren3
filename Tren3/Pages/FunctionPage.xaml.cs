@@ -43,7 +43,7 @@ namespace Tren3.Pages
 
         private void ShowWindowDataStorage(object sender, RoutedEventArgs e)
         {
-            StorageWindow storageWindow = new StorageWindow();
+            StorageWindow storageWindow = new StorageWindow(1);
             storageWindow.Show();
         }
 
@@ -57,6 +57,12 @@ namespace Tren3.Pages
         {
             MaterialWindow materialInKomarowoWindow = new MaterialWindow(2);
             materialInKomarowoWindow.Show();
+        }
+
+        private void ShowStorageDistinct(object sender, RoutedEventArgs e)
+        {
+            StorageWindow storageWindow = new StorageWindow(2);
+            storageWindow.Show();
         }
     }
 }
