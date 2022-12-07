@@ -70,5 +70,11 @@ namespace Tren3.Pages
             InfoWindow infoWindow = new InfoWindow();
             infoWindow.Show();
         }
+
+        private void ShowMaterial12km(object sender, RoutedEventArgs e)
+        {
+            MaterialWindow materialInKomarowoWindow = new MaterialWindow(3);
+            materialInKomarowoWindow.Show();
+        }
     }
 }

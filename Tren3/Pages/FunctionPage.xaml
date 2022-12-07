@@ -16,7 +16,7 @@
             <Button Style="{StaticResource ButtonNavigate}" Content="Таблица материалы в обратном порядке" Width="auto" Click="ShowMaterialReverce"/>
             <Button Style="{StaticResource ButtonNavigate}" Content="Из таблицы Стройматериал список складов, где хранятся эти стройматериалы" Width="auto" Click="ShowStorageDistinct"/>
             <Button Style="{StaticResource ButtonNavigate}" Content="Наименование и номер склада стройматериала с самым большим остатком" Width="auto" Click="ShowMaterialMaxOstat"/>
-            <Button Style="{StaticResource ButtonNavigate}" Content="Материалы на расстоянии не менее 12 км от областного центра" Width="auto"/>
+            <Button Style="{StaticResource ButtonNavigate}" Content="Материалы на расстоянии не менее 12 км от областного центра" Width="auto" Click="ShowMaterial12km"/>
             <Button Style="{StaticResource ButtonNavigate}" Content="Удалить все материалы на складе №1" Width="auto"/>
         </StackPanel>
     </Grid>

@@ -16,6 +16,8 @@
                     <GridViewColumn Width="auto" DisplayMemberBinding="{Binding EdIzmer.ID}" Header="Ед. измерения"/>
                     <GridViewColumn Width="auto" DisplayMemberBinding="{Binding Ostat}" Header="Остаток"/>
                     <GridViewColumn Width="auto" DisplayMemberBinding="{Binding StorageID}" Header="№ Склада"/>
+                    <GridViewColumn Width="auto" DisplayMemberBinding="{Binding Storage.Address}" Header="Адрес"/>
+                    <GridViewColumn Width="auto" DisplayMemberBinding="{Binding Storage.DistanceCenter}" Header="До центра(км)"/>
                 </GridView>
             </ListView.View>
         </ListView>

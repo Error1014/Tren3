@@ -27,10 +27,15 @@ namespace Tren3.Windows
                 ShowDataMaterialInKomarowo();
                 this.Title = "Материалы в Комарово";
             }
-            else
+            else if (rejime==2)
             {
                 ShowDataMaterialReverce();
                 this.Title = "Материалы в обратном порядке";
+            }
+            else if (rejime==3)
+            {
+                ShowDataMaterial12km();
+                this.Title = "Материалы в складах на расстоянии не менее 12 км";
             }
         }
         private void ShowDataMaterialInKomarowo()
@@ -49,6 +54,15 @@ namespace Tren3.Windows
                                join z in Entities.GetContext().EdIzmer.ToList() on y.EdIzmerID equals z.ID
                                select y;
             DataMaterial = DataMaterial.OrderBy(x=>-x.ID);
+            ListViewMaterial.ItemsSource = DataMaterial;
+        }
+        private void ShowDataMaterial12km()
+        {
+            var DataMaterial = from x in Entities.GetContext().Storage.ToList()
+                               join y in Entities.GetContext().Material.ToList() on x.ID equals y.StorageID
+                               join z in Entities.GetContext().EdIzmer.ToList() on y.EdIzmerID equals z.ID
+                               where x.DistanceCenter >= 12
+                               select y;
             ListViewMaterial.ItemsSource = DataMaterial;
         }
     }
