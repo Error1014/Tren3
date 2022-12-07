@@ -21,7 +21,7 @@ namespace Tren3.Pages
     /// </summary>
     public partial class MaterialPage : Page
     {
-        private Material SelectedMaterial;
+        private Material SelectedMaterial=new Material();
         private bool isAdd = false;
         public MaterialPage()
         {
@@ -37,7 +37,7 @@ namespace Tren3.Pages
             SelectedMaterial.Title = TitleTB.Text;
             SelectedMaterial.EdIzmerID = EdIzmerCB.SelectedIndex + 1;
             SelectedMaterial.Ostat = int.Parse(OstatTB.Text);
-            //SelectedMaterial.StorageID = 0;
+            SelectedMaterial.StorageID = int.Parse(StorageIDTB.Text);
         }
 
         private void UpdateListView()

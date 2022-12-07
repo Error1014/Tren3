@@ -76,5 +76,20 @@ namespace Tren3.Pages
             MaterialWindow materialInKomarowoWindow = new MaterialWindow(3);
             materialInKomarowoWindow.Show();
         }
+
+        private void DelereMaterialAmStorage1(object sender, RoutedEventArgs e)
+        {
+            var ListMaterial = Entities.GetContext().Material.ToList();
+            foreach (var item in ListMaterial)
+            {
+                if (item.StorageID==1)
+                {
+                    Entities.GetContext().Material.Remove(item);
+                }
+            }
+            ListMaterial=Entities.GetContext().Material.ToList();
+            Save();
+            MessageBox.Show("Вы успешно удалили материалы со склада №1");
+        }
     }
 }
