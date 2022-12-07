@@ -13,7 +13,18 @@
             <ColumnDefinition Width="16*"/>
             <ColumnDefinition Width="9*"/>
         </Grid.ColumnDefinitions>
-        <ListView x:Name="ListViewMaterial">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <DockPanel >
+            <TextBlock FontSize="18" Width="55" Text="№"/>
+            <TextBlock FontSize="18" Width="255" Text="Название"/>
+            <TextBlock FontSize="18" Width="205" Text="Единицы измерения"/>
+            <TextBlock FontSize="18" Width="205" Text="Остаток"/>
+            <TextBlock FontSize="18" Width="205" Text="Склад"/>
+        </DockPanel>
+        <ListView x:Name="ListViewMaterial" Grid.Row="1">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel></StackPanel>
@@ -37,7 +48,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <StackPanel Grid.Column="1">
+        <StackPanel Grid.Column="1" Grid.RowSpan="2">
             <TextBlock x:Name="TitleModul" Text="Модуль редактирования" FontSize="25"/>
             <TextBlock Style="{StaticResource EditText}" Text="Номер материала:"/>
             <TextBox x:Name="NumberTB" Style="{StaticResource EditText}" MaxLength="10"/>

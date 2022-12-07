@@ -35,5 +35,10 @@ namespace Tren3
         {
             MainWindowFrame.Content = new Pages.MaterialPage();
         }
+
+        private void FunctionNavigate(object sender, RoutedEventArgs e)
+        {
+            MainWindowFrame.Content = new Pages.FunctionPage();
+        }
     }
 }

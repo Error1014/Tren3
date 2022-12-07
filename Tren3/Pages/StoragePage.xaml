@@ -13,7 +13,17 @@
             <ColumnDefinition Width="16*"/>
             <ColumnDefinition Width="9*"/>
         </Grid.ColumnDefinitions>
-        <ListView x:Name="ListViewStorage">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <DockPanel >
+            <TextBlock FontSize="18" Width="55" Text="№"/>
+            <TextBlock FontSize="18" Width="255" Text="Адрес"/>
+            <TextBlock FontSize="18" Width="205" Text="Тип материала"/>
+            <TextBlock FontSize="18" Width="205" Text="До центра(км)"/>
+        </DockPanel>
+        <ListView x:Name="ListViewStorage" Grid.Row="1">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel></StackPanel>
@@ -35,7 +45,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <StackPanel Grid.Column="1">
+        <StackPanel Grid.Column="1" Grid.RowSpan="2">
             <TextBlock x:Name="TitleModul" Text="Модуль редактирования" FontSize="25"/>
             <TextBlock Style="{StaticResource EditText}" Text="Номер склада:"/>
             <TextBox x:Name="NumberTB" Style="{StaticResource EditText}" MaxLength="10"/>
